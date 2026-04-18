@@ -16,9 +16,66 @@
   gap: 16px;
 }
 
+.etapas-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.etapas-group {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.etapas-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.etapas-group-title {
+  margin: 0;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.etapas-group-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.83rem;
+  color: #64748b;
+}
+
+.etapas-statuses {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.status-chip {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  color: #334155;
+}
+
 @media (max-width: 900px) {
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .etapas-group-header {
+    flex-direction: column;
+  }
+
+  .etapas-statuses {
+    justify-content: flex-start;
   }
 }
 

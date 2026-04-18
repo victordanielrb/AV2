@@ -35,21 +35,52 @@ export default function EtapasPage() {
     setModal(null)
   }
 
+  const groupedByAeronave = Object.entries(
+    items.reduce((acc, item) => {
+      const key = item.aeronave?.trim() || 'Sem aeronave'
+      if (!acc[key]) acc[key] = []
+      acc[key].push(item)
+      return acc
+    }, {})
+  ).sort(([a], [b]) => a.localeCompare(b))
+
+  function getStatusCount(groupItems, status) {
+    return groupItems.filter(item => item.status === status).length
+  }
+
   return (
     <Layout title="Etapas">
       <div className="page-toolbar">
         <button className="btn-add" onClick={openAdd}>Adicionar</button>
       </div>
 
-      <div className="grid-3">
-        {items.map(item => (
-          <ItemCard
-            key={item.id}
-            title={item.nome}
-            subtitle={`${item.aeronave} · ${STATUS_LABEL[item.status]}`}
-            onEdit={() => openEdit(item)}
-            onDelete={() => handleDelete(item.id)}
-          />
+      <div className="etapas-groups">
+        {groupedByAeronave.map(([aeronave, groupItems]) => (
+          <section key={aeronave} className="etapas-group">
+            <header className="etapas-group-header">
+              <div>
+                <h3 className="etapas-group-title">{aeronave}</h3>
+                <p className="etapas-group-subtitle">{groupItems.length} etapa(s)</p>
+              </div>
+              <div className="etapas-statuses">
+                <span className="status-chip">Pendente: {getStatusCount(groupItems, 'PENDENTE')}</span>
+                <span className="status-chip">Andamento: {getStatusCount(groupItems, 'ANDAMENTO')}</span>
+                <span className="status-chip">Concluída: {getStatusCount(groupItems, 'CONCLUIDA')}</span>
+              </div>
+            </header>
+
+            <div className="grid-3">
+              {groupItems.map(item => (
+                <ItemCard
+                  key={item.id}
+                  title={item.nome}
+                  subtitle={`${STATUS_LABEL[item.status]} · Prazo: ${item.prazo}`}
+                  onEdit={() => openEdit(item)}
+                  onDelete={() => handleDelete(item.id)}
+                />
+              ))}
+            </div>
+          </section>
         ))}
       </div>
 
