@@ -5,12 +5,9 @@
 ## Requisitos e Público-alvo
 
 O sistema foi concebido para apoiar o acompanhamento do ciclo de produção e manutenção de aeronaves, centralizando informações operacionais em um único painel. A partir das telas e fluxos implementados, as principais necessidades atendidas são:
-
-- Controle de acesso por perfil (Administrador, Engenheiro e Operador), com permissões específicas para cada ação.
 - Gestão de aeronaves com cadastro, edição, remoção e consulta de dados técnicos e status.
 - Gestão de peças com acompanhamento de vínculo por aeronave, tipo e situação operacional.
 - Gestão de etapas do processo com atualização de status e validação de sequência de execução.
-- Gestão de funcionários para organização de equipe e associação de responsabilidades.
 - Registro de testes técnicos e seus resultados para rastreabilidade de conformidade.
 - Emissão e consulta de relatórios para suporte à análise e tomada de decisão.
 - Área de perfil de usuário para manutenção de credenciais básicas.
@@ -23,6 +20,12 @@ Público-alvo:
 
 ---
 
+# Execução 
+
+```
+npm i //Instala as dependencias 
+npm run dev //executa o serviço
+```
 ## Fluxo de Usuário
 
 ```mermaid
@@ -105,8 +108,3 @@ flowchart TD
 
 ![Perfil](./docs/AV2%20-%20Prototipo/User.png)
 
----
-
-### Notificações
-
-![Notificações](./docs/AV2%20-%20Prototipo/Notification.png)
