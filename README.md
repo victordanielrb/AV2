@@ -2,6 +2,27 @@
 
 ---
 
+## Requisitos e Público-alvo
+
+O sistema foi concebido para apoiar o acompanhamento do ciclo de produção e manutenção de aeronaves, centralizando informações operacionais em um único painel. A partir das telas e fluxos implementados, as principais necessidades atendidas são:
+
+- Controle de acesso por perfil (Administrador, Engenheiro e Operador), com permissões específicas para cada ação.
+- Gestão de aeronaves com cadastro, edição, remoção e consulta de dados técnicos e status.
+- Gestão de peças com acompanhamento de vínculo por aeronave, tipo e situação operacional.
+- Gestão de etapas do processo com atualização de status e validação de sequência de execução.
+- Gestão de funcionários para organização de equipe e associação de responsabilidades.
+- Registro de testes técnicos e seus resultados para rastreabilidade de conformidade.
+- Emissão e consulta de relatórios para suporte à análise e tomada de decisão.
+- Área de perfil de usuário para manutenção de credenciais básicas.
+
+Público-alvo:
+
+- Engenheiros de Produção.
+- Engenheiros Aeronáuticos.
+- Administradores e operadores.
+
+---
+
 ## Fluxo de Usuário
 
 ```mermaid
@@ -24,6 +45,12 @@ flowchart TD
 
 ## Telas
 
+
+
+
+
+
+
 ### Login
 
 ![Login](./docs/AV2%20-%20Prototipo/Login.png)
@@ -40,45 +67,17 @@ flowchart TD
 
 ![Aeronaves](./docs/AV2%20-%20Prototipo/Aeronaves.png)
 
-**Ações disponíveis por perfil:**
-
-| Ação               | Administrador | Engenheiro | Operador |
-|--------------------|:---:|:---:|:---:|
-| Listar             | ✓   | ✓   | ✓   |
-| Cadastrar          | ✓   |     |     |
-| Ver Detalhes       | ✓   | ✓   |     |
-| Remover            | ✓   |     |     |
-
 ---
 
 ### Menu — Peças
 
 ![Peças](./docs/AV2%20-%20Prototipo/Pe%C3%A7as.png)
 
-**Ações disponíveis por perfil:**
-
-| Ação                  | Administrador | Engenheiro | Operador |
-|-----------------------|:---:|:---:|:---:|
-| Listar                | ✓   | ✓   |     |
-| Adicionar             | ✓   | ✓   |     |
-| Atualizar Status      | ✓   | ✓   | ✓   |
-
 ---
 
 ### Menu — Etapas
 
 ![Etapas](./docs/AV2%20-%20Prototipo/Etapas.png)
-
-**Ações disponíveis por perfil:**
-
-| Ação                        | Administrador | Engenheiro | Operador |
-|-----------------------------|:---:|:---:|:---:|
-| Listar                      | ✓   | ✓   |     |
-| Adicionar                   | ✓   | ✓   |     |
-| Iniciar                     | ✓   | ✓   | ✓   |
-| Finalizar                   | ✓   | ✓   | ✓   |
-| Adicionar Funcionário       | ✓   | ✓   |     |
-| Listar Funcionários         | ✓   | ✓   |     |
 
 > Regra: etapa só pode ser iniciada se a anterior estiver `CONCLUÍDA`.
 
@@ -88,26 +87,11 @@ flowchart TD
 
 ![Funcionários](./docs/AV2%20-%20Prototipo/Funcionario.png)
 
-**Ações disponíveis por perfil:**
-
-| Ação        | Administrador | Engenheiro | Operador |
-|-------------|:---:|:---:|:---:|
-| Listar      | ✓   |     |     |
-| Cadastrar   | ✓   |     |     |
-| Remover     | ✓   |     |     |
-
 ---
 
 ### Menu — Testes
 
 ![Testes](./docs/AV2%20-%20Prototipo/ModalExample.png)
-
-**Ações disponíveis por perfil:**
-
-| Ação          | Administrador | Engenheiro | Operador |
-|---------------|:---:|:---:|:---:|
-| Listar        | ✓   | ✓   |     |
-| Realizar      | ✓   | ✓   |     |
 
 ---
 
@@ -126,4 +110,3 @@ flowchart TD
 ### Notificações
 
 ![Notificações](./docs/AV2%20-%20Prototipo/Notification.png)
-# AV2
