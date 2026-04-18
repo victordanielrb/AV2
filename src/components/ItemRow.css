@@ -8,6 +8,21 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
+.item-row-clickable {
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.item-row-clickable:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.item-row-clickable:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
 .item-row-info {
   display: flex;
   flex-direction: column;

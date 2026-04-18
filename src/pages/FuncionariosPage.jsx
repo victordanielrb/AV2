@@ -8,6 +8,7 @@ import './Page.css'
 export default function FuncionariosPage() {
   const [items, setItems] = useState(inicial)
   const [modal, setModal] = useState(null)
+  const [viewItem, setViewItem] = useState(null)
   const [form, setForm] = useState({ nome: '', usuario: '', nivel: 'OPERADOR', telefone: '', endereco: '' })
 
   function openAdd() {
@@ -45,11 +46,37 @@ export default function FuncionariosPage() {
             key={item.id}
             title={item.nome}
             subtitle={`${item.nivel} · ${item.telefone}`}
+            onClick={() => setViewItem(item)}
             onEdit={() => openEdit(item)}
             onDelete={() => handleDelete(item.id)}
           />
         ))}
       </div>
+
+      {viewItem && (
+        <Modal title="Detalhes do Funcionário" onClose={() => setViewItem(null)}>
+          <div className="modal-field">
+            <label>Nome</label>
+            <input value={viewItem.nome} readOnly />
+          </div>
+          <div className="modal-field">
+            <label>Usuário</label>
+            <input value={viewItem.usuario} readOnly />
+          </div>
+          <div className="modal-field">
+            <label>Nível</label>
+            <input value={viewItem.nivel} readOnly />
+          </div>
+          <div className="modal-field">
+            <label>Telefone</label>
+            <input value={viewItem.telefone} readOnly />
+          </div>
+          <div className="modal-field">
+            <label>Endereço</label>
+            <input value={viewItem.endereco} readOnly />
+          </div>
+        </Modal>
+      )}
 
       {modal && (
         <Modal title={modal === 'add' ? 'Adicionar Funcionário' : 'Editar Funcionário'} onClose={() => setModal(null)}>
